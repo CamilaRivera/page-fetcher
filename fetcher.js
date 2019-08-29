@@ -12,7 +12,7 @@ const fetcher = (page, localPath) => {
   fs.readFile(localPath, (err, data) => {
     if (err) {
       console.log('Error :' + err);
-      return
+      return;
     }
     // If local path is empty
     if (data.length === 0) {
@@ -25,15 +25,15 @@ const fetcher = (page, localPath) => {
         } else {
           console.log("The page wasn't saved");
           rl.close();
-          return
+          return;
         }
       });
     }
   });
 };
 
-const writer = function (localPath, body) {
-  fs.writeFile(localPath, body, function (err) {
+const writer = function(localPath, body) {
+  fs.writeFile(localPath, body, function(err) {
     if (err) {
       return console.log(err);
     }
@@ -41,7 +41,7 @@ const writer = function (localPath, body) {
   });
 };
 
-const req = function (page, localPath) {
+const req = function(page, localPath) {
   request(page, (error, _, body) => {
     if (error) {
       console.log('error:', error); // Print the error if one occurred
